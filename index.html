@@ -1,36 +1,120 @@
-
 <!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <title>首页</title>
+    <title>清净心</title>
     <style>
-        
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .main{
+                float: left;
+                padding: 16px 0 0 55px;
+                cursor: pointer;
+                color: #985e5e;
+        }
+        .main:hover{
+                color: #d03434;
+        }
+        #topNav{
+            margin: 0 auto;
+            width: 100%;
+            height: 80px;
+            border: 1px solid red;
+            font-size: 35px;
+            color: #987979;
+        }
+        .someContent{
+            position: absolute;
+            left: 30%;
+        }
+        .someDetail{
+            overflow: hidden;
+            width: 1500px;
+            position: relative;
+        }
+        .detail{
+            width: 1500px;
+            height:670px;
+        }
+        .one{
+
+        }
+        .two{
+            position: absolute;
+            left: 1500px;
+            bottom: 0px;
+        }
+        .three{
+            position: absolute;
+            left: 3000px;
+            bottom: 0px;
+        }
+        .four{
+            position: absolute;
+            left: 4500px;
+            bottom: 0px;
+        }
+        #hiddenWidth{
+            width:6000px;
+        }
+        .bg{
+            margin-left: 58%;
+            margin-top: 2%;
+        }
     </style>
 </head>
 <body>
-    <div>
-        <ul>
-            <li class="front">前</li>
-            <li class="back">后</li>
-            <li class="left">左</li>
-            <li class="right">http://note.youdao.com/noteshare?id=3f09d235d9f892b868792d24b37dc3b7</li>
-            <li class="top"></li>
-			<a href="/rotateAndTransition.html">点我吧</a>
-            <li class="bottom"></li>
-            <p>Flying, Ultimate Frisbee
-新快报记者 赖妍/文 祝贺/图
-极限飞盘是什么?
-说到飞盘,不少人会想到训练汪星人反应的工具,或父母与年幼孩子互动的玩具。
-不过,这里要说的,是极限飞盘。
-极限飞盘是一项真正的运动,有着官方的规则、国际联赛,也是世运会项目之一。它要求非凡的健康、耐力与技巧,能够理解飞盘物理特性和比赛战略的智力,以及忠诚于极限飞盘精神诚实与信任的品格。
-“极限飞盘是唯一真正公平的运动比赛。”德国玩家Lennart说,他是广州极限飞盘界的高手之一,10岁就开始这项运动,至今已经16年,此前所属的Bad Skid俱乐部是德国顶尖飞盘队,曾参加过由国际飞盘联盟(WFDF)每四年举办的世界杯。
-公平在运动项目中是个有争议的词,诸如足球、篮球等运动,裁判及赛事的公平性都会引来是非不断,极限飞盘则不落窠臼,自1968年在美国的第一次比赛以来,没有裁判就成为了这项运动延续至今的传统,犯规、出界和失误都由场上的选手自行裁决,若有争议则互相讨论解决。
-“每个选手都是裁判,都有发言权。”在Jason看来,这是极限飞盘的独特之处。
-Jason来自美国波士顿,如今是广州飞盘协会的队长之一,玩极限飞盘已有7年。
-极限飞盘运动最重要的是它代表的精神:重视体育道德和公平竞争。它鼓励选手们去激烈对抗,享受体育竞技的乐趣,但必须建立在互相尊重,遵守规则的基础上。
-极限飞盘出现在北京上海等城市比广州要早一些,2008年,澳大利亚人Kwong、美国人Brian和一位加拿大女生的“飞盘三人组”把它带入了广州,最初圈子很小,在广州只有20多人的外国玩家,但这两年吸引了一批以大学生为主的中国粉丝, “盘友”人数已经超过500人。</p>
-        </ul>
+    <div id="mePage">
+        <div id="topNav">
+                <div class="someContent">
+                    <div class="main" value="0">首页</div>
+                    <div class="main" value="1">作品</div>
+                    <div class="main" value="2">技能</div>
+                    <div class="main" value="3">关于我</div>
+                </div>
+        </div>
+        <div class="bottomContent">
+            <div class="someDetail">
+               <div id="hiddenWidth" style="position: relative;left: 0px;">
+                     <div class="detail one">
+                         <div class="bg">
+                             <img src="image/timg.jpg"/>
+                         </div>
+                     </div>
+                    <div class="detail two">22222222222222</div>
+                    <div class="detail three">3333333333333</div>
+                    <div class="detail four">44444444444</div>
+               </div>
+            </div>
+        </div>
     </div>
 </body>
+<script type="text/javascript" src="js/jquery-1.4.4.js"></script>
+<script>
+    $(".main").click(function(){
+        var index = $(this).attr("value");
+        switch(index / 1){
+            case  0:
+                    animateFun(0);
+                    break;
+            case  1: 
+                    animateFun(1); 
+                    break;
+            case  2:
+                    animateFun(2); 
+                    break;
+            case  3:
+                    animateFun(3); 
+                    break;
+        };
+    });
+    function animateFun(index){
+            var left = "-" + index * 1500 + "px";
+            $("#hiddenWidth").animate({
+                  left:left
+            },2000); 
+    };
+</script>
 </html>
