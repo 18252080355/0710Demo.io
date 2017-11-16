@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>活动内容，你刮刮看</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <style>
+  		body{
+  				padding : 0;
+  				margin : 0;
+  		}
+  		html{
+  				font-size:62.5%;
+  		}
+  		.content{
+  				font-size: 8rem;
+			    background-color: #c2d6e6;
+			    height: 89rem;
+  		}
+  		#canvas{
+  				position: absolute;
+			    top: 0;
+			    left: 0;
+  		}
+  		.img{
+  				width: 100%;
+    			height: 56rem;
+  		}	
+  </style>
+  <script type="text/javascript" src="../../js/demo.js"></script>
+  <body>
+  	<img class="img" src="image/02.png"></img>
+  	<div class="content">这个周日新操场飞盘继续哦，大家穿好运动装，带上盘，准备好水哦！周日下午两点在新操场飞盘，因为天气冷了黑的早，提前半小时，小伙伴们不要迟到哦！</div>
+    <canvas id="canvas"></div>
+  </body>
+<script type="text/javascript">
+  	var cav = document.getElementById("canvas");
+  	var w = window.innerWidth;
+  	var h = window.innerHeight;
+  	cav.width = w;
+  	cav.height = h;
+  	var ctx = cav.getContext("2d");
+	ctx.fillStyle = "#c1c1c1";
+  	ctx.fillRect(0,0,w,h);
+  	cav.addEventListener("touchstart",fn1);
+  	cav.addEventListener("touchmove",fn2);
+  	function fn1(e){
+			//console.log(e);
+			//获取触摸点的坐标
+			var startx = e.touches[0].clientX;
+			var starty = e.touches[0].clientY;
+			//设置触摸所产生的线条的圆润程度
+			ctx.lineCap = "round";
+			ctx.lineJoin = 'round';
+			ctx.lineWidth = 100;
+			//重新开启一条触摸的线条路径，并确认起始点
+			ctx.beginPath();
+			ctx.moveTo(startx,starty);
+			//使画笔按下的地方表面涂层变为透明
+			ctx.globalCompositeOperation="destination-out";
+		}
+
+		function fn2(e){
+			//获取移动点的坐标
+			var movex = e.touches[0].clientX;
+			var movey = e.touches[0].clientY;
+			// 让画笔移动到移动点
+			ctx.lineTo(movex,movey);
+			//划线
+			ctx.stroke();
+			//使画笔按下的地方表面涂层变为透明
+			//cxt.globalCompositeOperation = 'destination-out';
+		}
+
+ </script>
+</html>
+
+
+
+
+
+
